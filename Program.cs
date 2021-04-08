@@ -17,10 +17,11 @@ namespace Projetil
             double pi = Math.PI;
             double g = 9.80665;
             
-            double seno = Math.Sin(pi * (ang/180));
-            double senoAng = Math.Sin(pi * (2 * ang/180));
+            double angEmRad = ang * (pi/180);
 
-            double alcance = (Math.Pow(velo, 2) * senoAng) / g;
+            double senoAng = Math.Sin(angEmRad);
+
+            double alcance = (Math.Pow(velo, 2) * Math.Sin(2 * angEmRad)) / g;
             double altura = Math.Pow(velo * senoAng, 2) / (2 * g);
             
             Console.WriteLine($"Alcance: {alcance:N2} m");
